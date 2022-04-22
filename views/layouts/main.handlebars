@@ -1,0 +1,61 @@
+<!-- 
+    Final Project - Project Team 2
+        Type Names Here
+        Daniel Mendes
+        Darren Garnett
+        Andrew Chester
+    Index page for our Chess site
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Online Chess App</title>
+        <link rel="shortcut icon" href="./favicon.ico">
+        <!--
+        Link for Roboto Font from Google Fonts
+        Contains regular/italics styles for weights 100, 300, and 500
+        -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100;1,300;1,500&display=swap" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <!-- First for the main site, Second for the chess game -->
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./TemplateData/gamestyle.css">
+
+        <!--Client side JS; used for navbar redirects; Potentially pre-rendered templates?-->
+        <script src='index.js' charset='utf-8' defer></script>
+
+        <!-- Sets up necessary info for the socket.io live chat
+        <script>
+        var socket = io();
+        </script>-->
+        
+
+    </head>
+
+    <body>
+        <header>
+            <div class="header-img-container">
+                <img src="Sprites/White_Piece0005.png" alt="Chess Online Logo">
+            </div>
+            <!--Site title links to the root page of the site-->
+            <h1 class = "site-title"><a href="./">Online Chess App</a></h1>
+
+            <nav id="navbar">  
+                <ul>
+                    <!--Add IDs based on page names, add click listeners in JS-->
+                    <li id="navAbout">About Us</li>
+                    <li id="navHowto">How to Play</li>
+                    <li id="navPlaceholder">Placeholder</li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--Main Content Goes Here-->
+        {{{body}}}
+
+    </body>
+</html>

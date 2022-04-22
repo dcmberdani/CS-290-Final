@@ -1,0 +1,109 @@
+<!-- 
+    A game-content div will align elements horizontally
+    Then, content divs will align elements vertically
+    So, the game + stats will be stored in a content div
+    And the chat + buttons will also be stored in a content div
+    The game-content div will allow them to be side-by-side
+-->
+<main class = "game-content">
+    <div class="content">
+        <div class="game-stats">
+            <!--Difficulty, Winrate, etc. go here-->
+            <h3 id="winrate">winrate text</h2>
+            <h3 id="timer">timer text</h3>
+            <h3 id="game_id">game_id</h3>
+        </div>
+
+        <div class="game-container">
+            <canvas id="unity-canvas">
+
+            </canvas>
+
+            <!--Unity embed goes here-->
+            <div id="unity-container" class="unity-desktop">
+                <canvas id="unity-canvas"></canvas>
+                <div id="unity-loading-bar">
+                    <div id="unity-logo"></div>
+                    <div id="unity-progress-bar-empty">
+                        <div id="unity-progress-bar-full"></div>
+                    </div>
+                </div>
+                <div id="unity-mobile-warning">
+                    WebGL builds are not supported on mobile devices.
+                </div>
+                <div id="unity-footer">
+                    <div id="unity-fullscreen-button"></div>
+                </div>
+            </div>
+            <script>
+            var globalGameInstance = null;
+
+            var buildUrl = "Build";
+            var loaderUrl = buildUrl + "/chess_game.loader.js";
+            var config = {
+                dataUrl: buildUrl + "/chess_game.data",
+                frameworkUrl: buildUrl + "/chess_game.framework.js",
+                codeUrl: buildUrl + "/chess_game.wasm",
+                streamingAssetsUrl: "StreamingAssets",
+                companyName: "DefaultCompany",
+                productName: "Chess Game",
+                productVersion: "1.0",
+            };
+        
+            var container = document.querySelector("#unity-container");
+            var canvas = document.querySelector("#unity-canvas");
+            var loadingBar = document.querySelector("#unity-loading-bar");
+            var progressBarFull = document.querySelector("#unity-progress-bar-full");
+            var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+            var mobileWarning = document.querySelector("#unity-mobile-warning");
+        
+            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                container.className = "unity-mobile";
+                config.devicePixelRatio = 1;
+                mobileWarning.style.display = "block";
+                setTimeout(() => {
+                mobileWarning.style.display = "none";
+                }, 5000);
+            } else {
+                canvas.style.width = "100%";
+                canvas.style.height = "100%";
+            }
+            loadingBar.style.display = "block";
+        
+            var script = document.createElement("script");
+            script.src = loaderUrl;
+            script.onload = () => {
+                createUnityInstance(canvas, config, (progress) => {
+                progressBarFull.style.width = 100 * progress + "%";
+                }).then((unityInstance) => {
+                globalGameInstance = unityInstance;
+                loadingBar.style.display = "none";
+                fullscreenButton.onclick = () => {
+                    unityInstance.SetFullscreen(1);
+                };
+                }).catch((message) => {
+                alert(message);
+                });
+            };
+            document.body.appendChild(script);
+            </script>
+        </div>
+    </div>
+    <div class="content">
+        <div class="button-bar">
+            <ul>
+                <li id="create" onclick="create()">Create Game</li>
+                <li id="join" onclick="join()">Join Game</li>
+                <input type="text" id="join_id" placeholder="Enter Game ID to join...">
+            </ul>
+        </div>
+        <div class="chat-container">
+            <ul id="chat-messages"></ul>
+            <form id="chat-form" action="">
+                <input id="chat-input" autocomplete="off" placeholder="type message"/> 
+                <button id="chat-send">Send</button>
+            </form>
+
+        </div>
+    </div>
+</main>

@@ -1,0 +1,401 @@
+/*
+    Current Color Pallete:
+        https://coolors.co/cb997e-ddbea9-ffe8d6-e4e4dd-a5a58d-565a49
+*/
+
+body {
+    /*Aligns content vertically and in the center of the site*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /*Sets the default font for the site*/
+    font-family: Roboto;
+    font-weight: 300;
+
+    background-color: #36382e;
+
+    /*Removes default margin from the website*/
+    margin: 0;
+}
+
+
+header {
+    /*Change color to color scheme*/
+    background-color: #565a49;
+    width: 100%;
+    height: auto;
+
+    /*Horizontally aligns the logo and the title
+    Also, places the title near the bottom of the header*/
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    /*Prevents title from wrapping*/
+    white-space: nowrap;
+    flex-wrap: wrap;
+    /*Adjusting padding in this div affects horizontal scrolling*/
+    padding: 10px 0;
+}
+
+.header-img-container img {
+    /*Controls the size of the logo*/
+    width: 40px;
+    height: auto;
+
+    /*Adds some white space to the left of the logo*/
+    padding-left: 10px;
+}
+
+header a {
+    /*Controls the color of the class title*/
+    color: #edede8;
+
+    /*Removes underlines from the header link*/
+    text-decoration: none;
+}
+
+.site-title {
+    /*Controls the style/position of the header title's font*/
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+
+    /*padding: 0 0 10px 20px;*/
+    padding-left: 20px;
+    
+}
+
+#navbar {
+    /*Aligns the rest of the nav-bar items to the right of the screen*/
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#navbar ul {
+    /*Removes bullet points from the list*/
+    display: flex;
+    list-style-type: none;
+
+    /*Removes default list padding/margins*/
+    margin: 0;
+    padding-right: 20px;
+
+    /*Styles the font of navbar items*/
+    font-size: 30px;
+    font-weight: 300;
+    color: #edede8;
+}
+
+#navbar li {
+    /*Adjusts the spacing between items in the navbar*/
+    margin: 0;
+    margin-left: 40px;
+
+    /*Padding between elements; Mostly for styling a "pill" upon hover*/
+    padding: 5px 15px;
+}
+
+#navbar li:hover {
+    /*Changes the color of navbar elements on hover*/
+    background-color: #4b4f40;
+
+    /*Creates a "pill" border around them*/
+    border-radius: 20px;
+
+    /*Styles the mouse to show interactivity w/these*/
+    cursor: pointer;
+}
+
+.game-content {
+    /*Aligns main content elements horizontally, unique for the game page*/
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    /*Places items as far down in the content box; Creates nicely sized elements*/
+    align-items: flex-end;
+}
+
+.content {
+    /*Align main content elements vertically*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /**/
+    width: auto;
+
+    /**/
+    flex-grow: 0;
+    flex-shrink: 1;
+}
+
+.game-stats {
+    /*Styles the bar above the game*/
+    /*background-color: lightblue;*/
+    /*Width equal to the game*/
+    width: 600px;
+    height: auto;
+    margin: 10px;
+    
+
+    /*This is essentially a container for the text about the game stored above it*/
+    display: flex;
+    flex-direction: row;
+    /*Spaces the stats text above the chess game*/
+    justify-content: space-between;    
+}
+
+.game-stats h3 {
+    /*Removes margins from the timer/winrate text*/
+    margin: 0;
+
+    /*Makes these elements not-flexible; Allows for aligning them easier*/
+    flex: 0 0 auto;
+
+    /*Styles the font inside*/
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: 300;
+    color: #edede8;
+}
+
+/*Elements in the bar NEXT to the game; chat/buttons*/
+.button-bar {
+    /*Aligns buttons horizontally*/
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+
+    /*Places the button-bar on the far left, near the game itself*/
+    align-self: flex-start;
+}
+
+.button-bar ul {
+    /*Removes bullet points from the list*/
+    display: flex;
+    list-style-type: none;
+
+    /*Removes default list padding/margins*/
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+
+    /*Styles the font of buttonBar items*/
+    font-size: 20px;
+    font-weight: 300;
+    color: #edede8;
+}
+
+.button-bar li {
+    /*Adjusts the spacing between items in the button bar*/
+    margin: 0;
+    margin-right: 20px;
+
+    /*Padding between elements; Mostly for styling a "pill" upon hover*/
+    padding: 4px 8px;
+
+    /*Changes the color of background to increase contrast*/
+    background-color: #4b4f40;
+
+    /*Creates a "pill" border around them*/
+    border-radius: 20px;
+
+    border:solid;
+    border-width: 1px;
+    border-color: #c9c9ba;
+
+    /*Styles the mouse to show interactivity w/these*/
+    cursor: pointer;
+}
+
+
+.button-bar li:hover {
+    /*Change the text/border/background color on highlight*/
+    background-color: #FFE8D6;
+    border-color: #4b4f40;
+    color: #36382e;
+}
+
+#join_id {
+    /*Controls font inside the input box*/
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 300;
+    color: #36382e;
+
+    border-radius: 8px;
+    background-color: #edede8;
+    border: transparent;
+}
+
+.chat-container {
+    /*Not sure how wide/tall we want this to be*/
+    width: 450px;
+
+    /*Setting the height allows for the window the scroll properly*/
+    height: 500px;
+
+    /*Makes the container a rigid 550px tall containter for text*/
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 550px;
+
+    /*Styles the border/background*/
+    background-color: #4b4f40;
+    border-radius: 8px;
+    border:solid;
+    border-color: #2b2d25;
+    border-width: 1px;
+    padding: 8px;
+
+    /*Aligns the text messages and the input bar/button vertically*/
+    display: flex;
+    flex-direction: column;
+
+    /*Aligns text items to the bottom/left of the page*/
+    align-content: flex-start;
+    justify-content: flex-end;
+
+}
+
+#chat-messages {
+    /*Stretches the container of chat messages across the div*/
+    width: 100%;
+
+    /*Controls font inside the chat box*/
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 300;
+    color: #edede8;
+
+    /*Removes bullet points from the list*/
+    list-style-type: none;
+
+    /*Removes default list padding/margins*/
+    margin: 5px;
+    padding: 0;
+
+    /*Allows the chat to scroll instead of just pushing the screen up*/
+    max-height: 94%;
+    overflow: wrap;
+    word-wrap: break-word;
+    overflow-y: scroll;
+
+}
+
+#chat-form {
+    /*Make the form a flexbox so that sizing items is easier*/
+    display: flex;
+
+    /*Sizes the bar/button*/
+    height: 6%;
+
+    /*Pre*/
+    flex-grow: 0;
+}
+
+#chat-input{
+    /*Styles the background/border of the text box*/
+    background-color: #edede8;
+    border: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    border-color: #2b2d25;
+
+    /*Controls spacing in/around around the input box*/
+    /*margin: 5px 2px 5px 5px;*/
+    margin-right: 5px;
+
+    /*Controls font inside the chat box*/
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 300;
+    color: #36382e;
+
+    /*Stretches to fit the size of the conttainer*/
+    flex-grow: 1;
+}
+
+#chat-send{
+    /*Creates a "pill" border around them*/
+    border-radius: 4px;
+    padding: 5px 12px;
+
+    /*Controls font inside the send button box*/
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 300;
+    color: #36382e;
+
+    /*Change the text/border/background color on highlight*/
+    background-color: #edede8;
+    border-color: #2b2d25;
+    color: #36382e;
+
+    border:solid;
+    border-width: 1px;
+
+
+    /*Styles the mouse to show interactivity w/these*/
+    cursor: pointer;
+}
+
+#chat-send:hover {
+    /*Change the text/border/background color on highlight*/
+    background-color: #FFE8D6;
+    border-color: #4b4f40;
+    color: #36382e;
+}
+
+.game-container {
+    /*Container for the embed game*/
+    height: 600px;
+    width: 600px;
+    flex-basis: 600px;
+    background-color: hotpink;
+    margin: 0;
+}
+
+
+
+.error-title {
+    /*Specifies font styling for the large 404 title*/
+    font-size: 100px;
+    color: #edede8;
+    margin: 5% 10%;
+}
+
+.page-title {
+    /*Specifies font styling for medium-sized page titles*/
+    font-size: 50px;
+    color: #edede8;
+    margin: 25px 0;
+}
+
+.description {
+    /*Specifies font styling for medium-sized text*/
+    font-weight: normal;
+    font-size: 30px;
+    color: #edede8;
+
+    margin: 0 0 15px 0;
+}
+
+.info-box
+{
+    /*Contains styling for boxes of text, typically w/lists*/
+    background-color: #565a49;
+    border: 2px solid #2b2d25;
+    border-radius: 8px;
+    padding: 8px 32px;
+    margin: 10px 0 20px 0;
+
+    /*Styles the text within*/
+    font-size: 20px;
+    font-weight: 300;
+    color: #edede8;
+}
